@@ -30,7 +30,7 @@ class Authentication extends FormRequest
             // 'c_password' => 'required|same:password',
             'cnic'=> 'required|string|max:16|min:16',
             'phone_no' => 'required|string|max:14|min:2',
-            'country'=> 'required|string|max:5|min:2',
+            'country_id'=> 'required|int',
         ];
     }
 }

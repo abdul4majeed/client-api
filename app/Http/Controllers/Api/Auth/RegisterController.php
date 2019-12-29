@@ -10,13 +10,11 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     public function register(Authentication $request){
-        // dd('in');
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] =  $user->createToken('access token')-> accessToken;
         $success['name'] =  $user->name;
         return response()->json(['success'=>$success], 200);
-
     }
 }

@@ -18,6 +18,7 @@ Route::group([
 ], function () {
 Route::post('register', 'Api\Auth\RegisterController@register');
 Route::post('login', 'Api\Auth\LoginController@login');
+Route::post('logout','Api\LoginController@logout');
 });
 
 Route::group(['middleware' => 'auth:api','cors'], function(){

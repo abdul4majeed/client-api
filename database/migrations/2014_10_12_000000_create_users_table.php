@@ -20,10 +20,13 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('cnic')->nullable();
             $table->string('phone_no')->nullable();
-            $table->string('country')->nullable();
+            $table->bigInteger('country_id')->unsigned();;
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+        });
+        Schema::table('users', function(Blueprint $table){
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
 
