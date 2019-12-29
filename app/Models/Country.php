@@ -9,4 +9,10 @@ class Country extends Model
     public function users(){
         return $this->hasMany(User::class);
     }
+
+    public function getCountries()
+    {
+        return $this->all();
+    }
+
 }
